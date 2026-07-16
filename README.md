@@ -64,8 +64,8 @@ The compiled executable will be in the `dist/` folder. Make sure `soundcloud.ico
 
 ## Credits
 
-Developed by **Arizaki**.
+Developed by **Soul_Nova**.
 
 ## License
 
-Copyright © 2026 Arizaki. For personal use.
+Copyright © 2026 Soul_Nova. For personal use.
