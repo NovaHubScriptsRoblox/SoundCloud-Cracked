@@ -1,20 +1,7 @@
 """
-SoundCloud v2.0 - Client optimise (portage Python)
-Developpe par Arizaki
-Copyright (c) 2026 Arizaki
-
-Portage Python de l'application Electron d'origine.
-Utilise PySide6 (QtWebEngine, moteur Chromium - equivalent d'Electron)
-et pypresence (equivalent moderne de la lib "discord-rpc" npm, desormais
-non maintenue) pour la Discord Rich Presence.
-
-Fonctionnalites :
-  - Lecture de SoundCloud dans une fenetre native
-  - Blocage des requetes publicitaires (interception reseau, comme
-    webContents.session.webRequest cote Electron)
-  - Discord Rich Presence avec reconnexion automatique
-  - Minuteur de sommeil (arret automatique de la lecture)
-  - Menu multilingue (FR/EN/auto)
+SoundCloud v2.0
+Developer Soul_Nova
+Copyright (c) 2026 Soul_Nova
 """
 
 import re
@@ -50,7 +37,7 @@ MAX_RECONNECT_ATTEMPTS = 5
 # ---------------------------------------------------------------------------
 LOCALES = {
     "fr": {
-        "app_title": "SoundCloud - by Arizaki v2.0",
+        "app_title": "SoundCloud - by Soul_Nova v2.0",
         "menu": {
             "home": "Accueil",
             "sleep_timer": "Minuteur de sommeil",
@@ -69,9 +56,9 @@ LOCALES = {
             "title": "A propos de SoundCloud v2.0",
             "message": "SoundCloud v2.0 - Client optimise",
             "detail": (
-                "Developpe par Arizaki\n"
+                "Developpe par Soul_Nova\n"
                 "Portage Python (PySide6 + pypresence)\n"
-                "Copyright (c) 2026 Arizaki\n\n"
+                "Copyright (c) 2026 Soul_Nova\n\n"
                 "Application permettant d'ecouter de la musique depuis "
                 "SoundCloud avec des fonctionnalites avancees."
             ),
@@ -118,9 +105,9 @@ LOCALES = {
             "title": "About SoundCloud v2.0",
             "message": "SoundCloud v2.0 - Optimized Client",
             "detail": (
-                "Developed by Arizaki\n"
+                "Developed by Soul_Nova\n"
                 "Python port (PySide6 + pypresence)\n"
-                "Copyright (c) 2026 Arizaki\n\n"
+                "Copyright (c) 2026 Soul_Nova\n\n"
                 "Application allowing you to listen to music from "
                 "SoundCloud with advanced features."
             ),
@@ -238,7 +225,7 @@ class DiscordRPCManager:
                 details="listening on Soundcloud" if is_en else "ecoute sur Soundcloud",
                 state="Waiting..." if is_en else "En attente...",
                 large_image="soundcloud-logo",
-                large_text="by Arizaki",
+                large_text="by Soul_Nova",
                 buttons=[
                     {
                         "label": "Listen on SoundCloud" if is_en else "Ecouter sur SoundCloud",
@@ -276,7 +263,7 @@ class DiscordRPCManager:
                     details=title or ("Unknown track" if is_en else "Piste inconnue"),
                     state=(f"By {artist}" if is_en else f"Par {artist}"),
                     large_image="soundcloud-logo",
-                    large_text="By Arizaki",
+                    large_text="By Soul_Nova",
                     buttons=[
                         {
                             "label": "Listen on SoundCloud" if is_en else "Ecouter sur SoundCloud",
@@ -289,7 +276,7 @@ class DiscordRPCManager:
                     details="listening on Soundcloud" if is_en else "ecoute sur Soundcloud",
                     state="Paused" if is_en else "En pause",
                     large_image="idling",
-                    large_text="by Arizaki",
+                    large_text="by Soul_Nova",
                 )
         except Exception as exc:
             print(f"Erreur lors de la mise a jour de Discord RPC : {exc}")
@@ -413,13 +400,13 @@ class MainWindow(QMainWindow):
         act_site = QAction(texts["menu"]["official_site"], self)
         act_site.triggered.connect(
             lambda: QApplication.instance().property("open_url")
-            or self._open_external("https://soundcloud-crack.web.app/")
+            or self._open_external("https://soundcloud-desktop.web.app/")
         )
         main_menu.addAction(act_site)
 
         act_github = QAction(texts["menu"]["github"], self)
         act_github.triggered.connect(
-            lambda: self._open_external("https://github.com/ArizakiDev/SoundCloud-cracked")
+            lambda: self._open_external("https://github.com/Soul-Nova/SoundCloud-desktop")
         )
         main_menu.addAction(act_github)
 
