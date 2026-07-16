@@ -1,25 +1,43 @@
-# SoundCloud Desktop v2.0
+<div align="center">
 
-A lightweight desktop client for SoundCloud with ad-blocking, Discord Rich Presence, and a sleep timer — built with Python and Qt.
+# 🎧 SoundCloud Desktop
 
-> Unofficial third-party client. Not affiliated with or endorsed by SoundCloud.
+**An unofficial desktop client for SoundCloud — ad-free, with Discord Rich Presence and a built-in sleep timer.**
+
+[![Platform](https://img.shields.io/badge/platform-Windows-0078D6)](../../releases)
+[![Made with Python](https://img.shields.io/badge/made%20with-Python-3776AB)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-Personal%20Use-lightgrey)](#license)
+
+[Download](../../releases) · [Features](#features) · [Installation](#installation) · [Build it yourself](#building-your-own-executable)
+
+</div>
+
+---
+
+## What is this?
+
+SoundCloud Desktop wraps the SoundCloud web player in a native app, strips out ads, and adds a few things the official site doesn't have — like showing your currently playing track on Discord and a sleep timer for late-night listening.
+
+> This is an unofficial, community-made project. It is not affiliated with, endorsed by, or connected to SoundCloud.
 
 ## Features
 
-- 🎧 **Native desktop player** — SoundCloud running in its own window, no browser tabs required
-- 🚫 **Ad blocking** — network-level filtering of ad and tracker domains
-- 🎮 **Discord Rich Presence** — shows what you're listening to on your Discord profile, with a "Listen on SoundCloud" button
-- 😴 **Sleep timer** — automatically pause playback after a set time (15 min to several hours, or a custom duration)
-- 🌍 **Multi-language** — English and French, with automatic detection based on your system language
-- 🛠️ **Built-in DevTools** — for troubleshooting, toggle-able from the menu
+| | |
+|---|---|
+| 🎧 **Native player** | SoundCloud in its own window — no browser tabs |
+| 🚫 **Ad blocking** | Ad and tracker requests are filtered at the network level |
+| 🎮 **Discord Rich Presence** | Shows the track you're playing on your Discord profile, with a "Listen on SoundCloud" button |
+| 😴 **Sleep timer** | Auto-pause after 15 minutes to a few hours, or a custom duration |
+| 🌍 **Multi-language** | English and French, auto-detected from your system |
+| 🛠️ **DevTools toggle** | For debugging playback or display issues |
 
 ## Installation
 
-### Option A — Download the release (recommended)
+### Download (recommended)
 
-Grab the latest `.exe` from the [Releases](../../releases) page and run it. No installation of Python or dependencies required.
+Head to the **[Releases](../../releases)** page and download the latest `SoundCloud-v2.0.exe`. No Python or setup required — just run it.
 
-### Option B — Run from source
+### Run from source
 
 Requires Python 3.9+.
 
@@ -32,35 +50,33 @@ python main.py
 
 ## Building your own executable
 
-If you want to build the `.exe` yourself instead of using a release build:
-
 ```bash
 pip install -r requirements.txt
 pip install pyinstaller
 pyinstaller --onefile --windowed --icon=soundcloud.ico --name "SoundCloud-v2.0" main.py
 ```
 
-The compiled executable will be in the `dist/` folder. Make sure `soundcloud.ico` is in the project root before building.
-
-## How it works
-
-| Component | Technology |
-|---|---|
-| App window / renderer | Qt WebEngine (Chromium-based) |
-| Ad blocking | Network request interception |
-| Discord Rich Presence | [pypresence](https://github.com/qwertyquerty/pypresence) |
-| UI / menus / dialogs | PySide6 (Qt for Python) |
+Your `.exe` will be in the `dist/` folder. Keep `soundcloud.ico` in the project root before building.
 
 ## Requirements
 
-- Python 3.9+ (only needed if running from source)
-- Windows (built and tested for `.exe` distribution; the source also runs on macOS/Linux)
-- A Discord desktop client running, if you want Rich Presence to show up
+- **To run the `.exe`:** Windows, nothing else.
+- **To run from source:** Python 3.9+
+- **For Discord Rich Presence:** the Discord desktop app must be open and logged in.
+
+## Under the hood
+
+| Piece | Tech |
+|---|---|
+| App window & renderer | Qt WebEngine (Chromium-based) |
+| Ad blocking | Network request interception |
+| Discord Rich Presence | [pypresence](https://github.com/qwertyquerty/pypresence) |
+| UI, menus, dialogs | PySide6 (Qt for Python) |
 
 ## Known limitations
 
-- Discord Rich Presence requires the Discord desktop app to be open and logged in.
-- Ad-blocking works by filtering known ad/tracker domains — if SoundCloud changes their ad delivery infrastructure, the pattern list may need updating.
+- Rich Presence won't appear if Discord isn't running.
+- Ad blocking relies on a domain pattern list — if SoundCloud changes its ad infrastructure, the list may need an update.
 
 ## Credits
 
